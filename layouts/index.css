@@ -198,6 +198,18 @@ figure.half figcaption {
 figure.third figcaption {
   width: 100%;
 }
+.post-style figure.floatleft {
+  float: left;
+  margin-top: 0;
+  margin-bottom: 30px;
+  margin-right: 20px;
+}
+.post-style figure.floatright {
+  float: right;
+  margin-top: 0;
+  margin-bottom: 30px;
+  margin-left: 20px;
+}
 figcaption {
   font-family: Merriweather;
   font-size: .75em;
@@ -562,6 +574,7 @@ nav li ul, nav li ol {
   }
 }
 .page {
+  margin-top: 30px;
   margin-bottom: 100px;
 }
 .page .page_container {
@@ -670,7 +683,7 @@ nav li ul, nav li ol {
 }
 
 .post-style figure {
-  margin-top: 60px;
+  margin-top: 30px;
   margin-bottom: 60px;
 }
 
