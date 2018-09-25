@@ -213,10 +213,10 @@ figure.third figcaption {
 figcaption {
   font-family: Merriweather;
   font-size: .75em;
-
   margin-bottom: .5em;
-
   color: #7a8288;
+  width: 100%;
+  text-align: center;
 }
 svg:not(:root) {
   overflow: hidden;
@@ -684,7 +684,7 @@ nav li ul, nav li ol {
 
 .post-style figure {
   margin-top: 30px;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 .post-style figure img {
