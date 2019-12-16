@@ -1,25 +1,25 @@
 {{ partial "header.html" . }}
 {{ partial "masthead_hero.html" . }}
 
-{{ with .Title }}<h1>{{ . }}</h1>{{ end }}
+  {{ with .Title }}<h1>{{ . }}</h1>{{ end }}
 
-{{ with .Content }}
-<div class="post-style" itemprop="articleBody">{{ . }}</div>
-{{ end }}
+  {{ with .Content }}
+  <div class="post-style" itemprop="articleBody">{{ . }}</div>
+  {{ end }}
 
-{{ $paginator := .Paginate .Site.RegularPages }}
-{{ range $paginator.Pages }}
-<div>
+  {{ $paginator := .Paginate .Site.RegularPages }}
+  {{ range $paginator.Pages }}
+  <div>
     <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
     <div class="post-style">
-        {{ if .Params.summary }}
-        {{ printf "%s" .Params.summary | markdownify }}
-        {{ else if .Truncated }}
-        {{ printf "%s" .Summary | markdownify }}
-        {{ end }}
+      {{ if .Params.summary }}
+      {{ printf "%s" .Params.summary | markdownify }}
+      {{ else if .Truncated }}
+      {{ printf "%s" .Summary | markdownify }}
+      {{ end }}
     </div>
-</div>
-{{ end }}
+  </div>
+  {{ end }}
 
 </div>
 {{ partial "footer_container.html" . }}

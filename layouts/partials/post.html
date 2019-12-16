@@ -1,22 +1,22 @@
 <article class="post" itemscope itemtype="http://schema.org/Article">
-    <div class="post-container">
-        <h1 itemprop="name"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+  <div class="post-container">
+    <h1 itemprop="name"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
 
-        {{ if not .Params.nometadata }}
-        {{ partial "post_metadata" (dict "content" . "is_list" 0) }}
-        {{ end }}
+    {{ if not .Params.nometadata }}
+      {{ partial "post_metadata" (dict "content" . "is_list" 0) }}
+    {{ end }}
 
-        <div class="post-style" itemprop="articleBody">
-            {{ .Content }}
-        </div>
-
-        {{ if not .Params.notags }}
-        {{ partial "tags.html" . }}
-        {{ end }}
-
-        {{ if not .Params.noshare }}
-        {{ partial "share.html" . }}
-        {{ end }}
-
+    <div class="post-style" itemprop="articleBody">
+      {{ .Content }}
     </div>
+
+    {{ if not .Params.notags }}
+      {{ partial "tags.html" . }}
+    {{ end }}
+
+    {{ if not .Params.noshare }}
+      {{ partial "share.html" . }}
+    {{ end }}
+
+  </div>
 </article>
