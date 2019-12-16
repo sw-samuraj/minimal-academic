@@ -1,13 +1,19 @@
 <div id="main" role="main">
-	{{ partial "sidebar.html" . }}
-	<article class="page">
-		<div class="page_container">
-			<section class="page_content">
-				<div class="recent-post-container">
-					<h1 class="taxonomy_title">Tag: {{ .Title}}</h1>
-					{{ partial "recent_posts.html" . }}
-				</div>
-			</section>
-		</div>
-	</article>
+    {{ partial "sidebar.html" . }}
+    <article class="page">
+        <div class="page_container">
+            <section class="page_content">
+                <div class="recent-post-container">
+                    <h1 class="taxonomy_title">Tag: {{ .Title}}</h1>
+                    {{ range .Pages }}
+                        <div class="recent-post">
+                            <h1><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+                            {{ partial "post_metadata" (dict "content" . "is_list" 0) }}
+                            <p>{{ .Description }}</p>
+                        </div>
+                    {{ end }}
+                </div>
+            </section>
+        </div>
+    </article>
 </div>
