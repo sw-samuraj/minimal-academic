@@ -1,5 +1,5 @@
 <style type="text/css">
-{{ $url := (print "img" "/" ( $.Param "hero_image" ) ) }}
+{{ $url := (print "img" "/" ($.Param "hero_image" | default "hero.jpg")) }}
 .masthead-hero {
   background-image: url("{{ $url | absURL }}");
 }
