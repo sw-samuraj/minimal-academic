@@ -18,9 +18,5 @@
       {{ partial "share.html" . }}
     {{ end }}
 
-    {{ if not .Params.nocomments }}
-      {{ partial "disqus.html" . }}
-    {{ end }}
-
   </div>
 </article>

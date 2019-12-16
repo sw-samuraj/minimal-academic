@@ -1,0 +1,13 @@
+<div id="main" role="main">
+	{{ partial "sidebar.html" . }}
+	<article class="page">
+		<div class="page_container">
+			<section class="page_content">
+				<div class="recent-post-container">
+					<h1 class="taxonomy_title">{{ .Title}}</h1>
+					{{ partial "recent_posts.html" . }}
+				</div>
+			</section>
+		</div>
+	</article>
+</div>
