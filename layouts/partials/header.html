@@ -49,14 +49,37 @@
 
   <link rel="canonical" href="{{ .Permalink }}">
 
-  <meta property="twitter:card" content="summary_large_image">
+  <meta name="twitter:card" content="summary_large_image">
   {{ range where $.Site.Params.social ".icon" "twitter" }}
-  <meta property="twitter:site" content="@{{ replaceRE "^//twitter.com/([^/]+)" "$1" .link }}">
-  <meta property="twitter:creator" content="@{{ replaceRE "^//twitter.com/([^/]+)" "$1" .link  }}">
+  <meta name="twitter:site" content="@{{ replaceRE "^//twitter.com/([^/]+)" "$1" .link }}">
+  {{ end }}
+  {{ if .IsPage }}
+  <meta name="twitter:title" content="{{ .Title }}">
+  <meta name="twitter:description" content="{{ .Description }}">
+  {{ if isset .Params "thumbnail" }}
+  <meta name="twitter:image" content="{{ .Site.BaseURL }}{{ .Params.thumbnail }}" />
+  {{ else }}
+  <meta name="twitter:image" content="{{ .Site.BaseURL }}img/hero.jpg" />
+  {{ end }}
+  {{ else }}
+  <meta name="twitter:title" content="{{ .Site.Title }}">
+  <meta name="twitter:description" content="{{ .Site.Params.bio }}">
+  <meta name="twitter:image" content="{{ .Site.BaseURL }}img/hero.jpg" />
   {{ end }}
   <meta property="og:site_name" content="{{ .Site.Title }}">
   <meta property="og:url" content="{{ .Permalink }}">
   <meta property="og:title" content="{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}">
+  {{ if .IsPage }}
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="{{ .Description }}" />
+  {{ else }}
+  <meta property="og:type" content="website" />
+  {{ end }}
+  {{ if isset .Params "thumbnail" }}
+  <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.thumbnail }}" />
+  {{ else }}
+  <meta property="og:image" content="{{ .Site.BaseURL }}img/hero.jpg" />
+  {{ end }}
   {{- with .Params.header.image }}<meta property="og:image" content="{{ printf "img/%s" . | absURL }}">{{end}}
   <meta property="og:locale" content="{{ .Site.LanguageCode | default "en-us" }}">
   {{ if .IsPage }}
